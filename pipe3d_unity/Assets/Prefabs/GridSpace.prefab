@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4219952500129578}
   m_Layer: 0
   m_Name: GridSpace
-  m_TagString: Untagged
+  m_TagString: GridSpace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
