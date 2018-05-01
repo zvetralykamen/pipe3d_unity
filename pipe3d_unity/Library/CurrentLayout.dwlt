@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 3}
-  m_MinSize: {x: 950, y: 613}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -68,7 +68,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 613}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &4
 MonoBehaviour:
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 563}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 154
+  controlID: 9
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 107
+  controlID: 129
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -447,9 +447,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5, y: 0, z: 0}
+    m_Target: {x: -15.883471, y: -7.7784586, z: -10.6832285}
     speed: 2
-    m_Value: {x: 5, y: 0, z: 0}
+    m_Value: {x: -15.883471, y: -7.7784586, z: -10.6832285}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -473,13 +473,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.10652214, y: 0.88910204, z: -0.35801888, w: -0.2645457}
+    m_Target: {x: -0.15432185, y: 0.7747524, z: -0.20719069, w: -0.57707506}
     speed: 2
-    m_Value: {x: -0.10652155, y: 0.88909703, z: -0.35801688, w: -0.26454422}
+    m_Value: {x: -0.15432185, y: 0.7747524, z: -0.20719069, w: -0.57707506}
   m_Size:
-    m_Target: 25.145731
+    m_Target: 38.078247
     speed: 2
-    m_Value: 25.145731
+    m_Value: 38.078247
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -522,7 +522,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 98fbffff00000000
+    m_ExpandedIDs: 1a45fdff2c49fdff202afeff902afeff002bfeffd02efeffc6faffff0000000038280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -588,13 +588,13 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\_Documents\_Computerstuff\GitHub\pipe3d_unity\pipe3d_unity
+  m_LastProjectPath: C:\Data\UnityProjects\pipe3d_unity\pipe3d_unity
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 0c260000
     m_LastClickedID: 9740
-    m_ExpandedIDs: 82270000
+    m_ExpandedIDs: be270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -622,7 +622,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 82270000
+    m_ExpandedIDs: 0000000088270000be270000942a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
