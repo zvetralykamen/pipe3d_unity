@@ -33,7 +33,7 @@ public class LevelManagment : MonoBehaviour {
 				for (var k = 0; k < levelX; k++) {
 					currentVector = new Vector3 (k, i, j);
 					GameObject gs_object = Instantiate (gridSpace, currentVector, Quaternion.identity);
-					GridSpace gs = gs_object.GetComponentInChildren<GridSpace>();
+					GridSpace gs = gs_object.GetComponent<GridSpace>();
 
 					//Find starting space.
 					if (currentVector == startingSpace) {

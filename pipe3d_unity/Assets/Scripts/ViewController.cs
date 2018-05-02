@@ -14,7 +14,7 @@ public class ViewController : MonoBehaviour {
 	void Start () {
 		boxcol = gameObject.GetComponent<BoxCollider> ();
 		boxcol.size = new Vector3 (lm.levelX, lm.levelY, lm.levelZ);
-		currentcenter = new Vector3 (lm.levelX / 2, lm.levelY + lm.levelY / 2, lm.levelZ / 2);
+		currentcenter = new Vector3 (lm.levelX / 2, lm.levelY + lm.levelY / 2 + 0.5f, lm.levelZ / 2);
 	}
 	
 	// Update is called once per frame
@@ -28,5 +28,21 @@ public class ViewController : MonoBehaviour {
 			currentcenter = new Vector3(currentcenter.x,currentcenter.y - 1,currentcenter.z);
 		}
 		
+	}
+
+	void OnCollisionEnter(Collision col){
+
+		if (col.gameObject.CompareTag("GridSpace")){
+			GridSpace gs = col.gameObject.GetComponentInChildren<GridSpace> ();
+			gs.SetVisibility (false);
+		}
+	}
+
+	void OnCollisionExit(Collision col){
+
+		if (col.gameObject.CompareTag ("GridSpace")) {
+			GridSpace gs = col.gameObject.GetComponentInChildren<GridSpace> ();
+			gs.SetVisibility (true);
+		}
 	}
 }

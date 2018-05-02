@@ -16,4 +16,8 @@ public class GridSpace : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void SetVisibility(bool isVisible){
+		gameObject.transform.GetChild(0).gameObject.SetActive (isVisible);
+	}
 }
