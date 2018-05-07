@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GridSpace
+  - Pipe
   layers:
   - Default
   - TransparentFX
