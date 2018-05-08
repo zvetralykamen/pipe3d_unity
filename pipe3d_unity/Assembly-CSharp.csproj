@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\GridSpace.cs" />
      <Compile Include="Assets\Scripts\LevelManagment.cs" />
+     <Compile Include="Assets\Scripts\PlacingSystem.cs" />
      <Compile Include="Assets\Scripts\ViewController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Data/Program Files/Unity_2017.3.1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

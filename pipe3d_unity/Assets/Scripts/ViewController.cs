@@ -27,7 +27,8 @@ public class ViewController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.P)) {
 			currentcenter = new Vector3(currentcenter.x,currentcenter.y - 1,currentcenter.z);
 		}
-		
+
+		currentcenter.y = Mathf.Clamp(currentcenter.y, 1.5f , lm.levelY + lm.levelY / 2 + 0.5f);
 	}
 
 	void OnCollisionEnter(Collision col){
