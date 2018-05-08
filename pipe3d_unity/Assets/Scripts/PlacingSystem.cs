@@ -104,9 +104,12 @@ public class PlacingSystem : MonoBehaviour {
                 }
                 else if (selecting == false) {
                     if (hitinfo.transform.gameObject.CompareTag("GridSpace")) {
-                        Destroy(selected);
+						GameObject go = hitinfo.transform.gameObject;
+						GridSpace gs = go.GetComponentInParent<GridSpace> ();
+						Destroy(selected);
                         Instantiate(selected, hitinfo.transform.position, selected.transform.rotation);
-                        Destroy(hitinfo.transform.gameObject);
+						gs.isEmpty = false;
+						gs.SetVisibility (false);
                         selected = null;
                         selecting = true;
                     }
