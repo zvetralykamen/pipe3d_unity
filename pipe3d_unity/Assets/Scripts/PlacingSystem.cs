@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlacingSystem : MonoBehaviour {
 
-    public Camera camera1; 
-    
-    
+    public Camera camera1;
+
     //pipe prefabs
     public GameObject pipe_straight; //1
     /*
@@ -18,9 +17,11 @@ public class PlacingSystem : MonoBehaviour {
     */
     public GameObject pipe_end; //7
 
+
     //vars for placing options
     public int amount_of_options = 7;
     public float[] rotations = new float[] { 0, 90, 180, 270 };
+
     public GameObject option_1;
     public GameObject option_2;
     public GameObject option_3;
@@ -28,12 +29,14 @@ public class PlacingSystem : MonoBehaviour {
     private bool option_2_available = true;
     private bool option_3_available = true;
 
-    //vars for 
+    //vars for options refill
+    private Vector3 option_position;
+
+    //vars for selecting
     private bool selecting = true;
     private GameObject selected;
 
-    void Start() {
-    }
+    void Start() { }
 
     void Update() {
         setOptions(); //random rotation is n- ... i don't know i think it works now...
@@ -41,16 +44,17 @@ public class PlacingSystem : MonoBehaviour {
         movingOptions();
     }
 
+
     void setOptions() {
-        if (option_1_available) {
+        if (option_1_available == true) {
             instantiate_rndOption(option_1.transform.position);
             option_1_available = false;
         }
-        else if (option_2_available) {
+        else if (option_2_available == true) {
             instantiate_rndOption(option_2.transform.position);
             option_2_available = false;
         }
-        else if (option_3_available) {
+        else if (option_3_available == true) {
             instantiate_rndOption(option_3.transform.position);
             option_3_available = false;
         }
@@ -64,27 +68,27 @@ public class PlacingSystem : MonoBehaviour {
             case 1:
                 Instantiate(pipe_straight, position, rndRotation);
                 break;
-               /*
-            case 2:
-                Instantiate(pipe_curve, position, Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(pipe_T, position, Quaternion.identity);
-                break;
-            case 4:
-                Instantiate(pipe_cross, position, Quaternion.identity);
-                break;
-            case 5:
-                Instantiate(pipe_cross_plus1, position, Quaternion.identity);
-                break;
-            case 6:
-                Instantiate(pipe_allconnected, position, Quaternion.identity);
-                break;
-                */
+            /*
+         case 2:
+             Instantiate(pipe_curve, position, rndRotation);
+             break;
+         case 3:
+             Instantiate(pipe_T, position, Quaternion.identity);
+             break;
+         case 4:
+             Instantiate(pipe_cross, position, Quaternion.identity);
+             break;
+         case 5:
+             Instantiate(pipe_cross_plus1, position, Quaternion.identity);
+             break;
+         case 6:
+             Instantiate(pipe_allconnected, position, Quaternion.identity);
+             break;
+             */
             case 7:
                 Instantiate(pipe_end, position, Quaternion.identity);
                 break;
-        } 
+        }
     }
 
     void movingOptions() { //I had to change _ViewController's Layer to 2/IgnoreRaycast bc the ray didn't went throught it's collider
@@ -97,6 +101,7 @@ public class PlacingSystem : MonoBehaviour {
 
                 if (selecting == true) {
                     if (hitinfo.transform.gameObject.CompareTag("Pipe")) {
+                        option_position = hitinfo.transform.position;
                         selected = hitinfo.transform.gameObject;
                         selecting = false;
                         Debug.Log("Selected: " + selected.name);
@@ -104,12 +109,13 @@ public class PlacingSystem : MonoBehaviour {
                 }
                 else if (selecting == false) {
                     if (hitinfo.transform.gameObject.CompareTag("GridSpace")) {
-						GameObject go = hitinfo.transform.gameObject;
-						GridSpace gs = go.GetComponentInParent<GridSpace> ();
-						Destroy(selected);
+                        GameObject go = hitinfo.transform.gameObject;
+                        GridSpace gs = go.GetComponentInParent<GridSpace>();
+                        Destroy(selected);
                         Instantiate(selected, hitinfo.transform.position, selected.transform.rotation);
-						gs.isEmpty = false;
-						gs.SetVisibility (false);
+                        gs.isEmpty = false;
+                        gs.SetVisibility(false);
+                        setOptionRefill();
                         selected = null;
                         selecting = true;
                     }
@@ -117,4 +123,15 @@ public class PlacingSystem : MonoBehaviour {
             }
         }
     }
+    void setOptionRefill() {
+        if (option_position == option_1.transform.position) {
+            option_1_available = true;
+        }
+        else if(option_position == option_2.transform.position) {
+            option_2_available = true;
+        }
+        else if (option_position == option_3.transform.position) {
+            option_3_available = true;
+        }
+    } 
 }

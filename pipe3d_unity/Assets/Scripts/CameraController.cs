@@ -8,19 +8,22 @@ public class CameraController : MonoBehaviour {
     public float distance = 1f;
     public float rotationSpeed;
 
-    private bool change_transform = false;
+    //private bool change_transform = false;
     private Vector3 new_pos = new Vector3(0, 0, 0);
 
     public float sensetivity = 5f;
+    public float ScrollSpeed = 2f;
+    public float minScrollDistance = 1f;
+    public float maxScrollDistance = 10f;
     private Vector3 rot = new Vector3(0, 0, 0);
 
+    private 
 
-    // Use this for initialization
     void Start () {
-		
-	}
+        new_pos = transform.position;
+        rot = transform.rotation.eulerAngles;
+    }
 	
-	// Update is called once per frame
 	void Update () {
         keyboard_input();
         mouse_input();
@@ -78,6 +81,13 @@ public class CameraController : MonoBehaviour {
             this.transform.rotation = Quaternion.Euler(0, rot.y, rot.z);
             //camera1.transform.RotateAround(this.transform.position, transform.up, _x * rotationSpeed);
         }
-        
+
+        camera1.transform.position = Vector3.MoveTowards(camera1.transform.position, this.transform.position, ScrollSpeed * Input.GetAxis("Mouse ScrollWheel"));
+        if (Vector3.Distance(camera1.transform.position, this.transform.position) <= minScrollDistance) { 
+            camera1.transform.position = Vector3.MoveTowards(camera1.transform.position, this.transform.position, ScrollSpeed * -0.1f);
+        }
+        if (Vector3.Distance(camera1.transform.position, this.transform.position) >= maxScrollDistance) {
+            camera1.transform.position = Vector3.MoveTowards(camera1.transform.position, this.transform.position, ScrollSpeed * 0.1f);
+        }
     }
 }
