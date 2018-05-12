@@ -112,9 +112,10 @@ public class PlacingSystem : MonoBehaviour {
                         GameObject go = hitinfo.transform.gameObject;
                         GridSpace gs = go.GetComponentInParent<GridSpace>();
                         Destroy(selected);
-                        Instantiate(selected, hitinfo.transform.position, selected.transform.rotation);
+						GameObject newPipe = Instantiate(selected, hitinfo.transform.position, selected.transform.rotation);
                         gs.isEmpty = false;
                         gs.SetVisibility(false);
+						newPipe.transform.SetParent (gs.gameObject.transform);
                         setOptionRefill();
                         selected = null;
                         selecting = true;

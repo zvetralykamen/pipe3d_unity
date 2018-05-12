@@ -15,12 +15,11 @@ public class CameraController : MonoBehaviour {
     public float ScrollSpeed = 2f;
     public float minScrollDistance = 1f;
     public float maxScrollDistance = 10f;
-    private Vector3 rot = new Vector3(0, 0, 0);
-
-    private 
+    private Vector3 rot = new Vector3(0, 0, 0); 
 
     void Start () {
-        new_pos = transform.position;
+		gameObject.transform.position = new Vector3 (7 / 2, 3 / 2, 7 / 2);//-----------------------------------------Add Reference to Levelmanager
+		new_pos = transform.position;
         rot = transform.rotation.eulerAngles;
     }
 	

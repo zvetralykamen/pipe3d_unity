@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridSpace : MonoBehaviour {
 
+	public GameObject gridCube;
+
 	public bool isEmpty = true;
 	public bool isStartingPoint = false;
 
@@ -14,10 +16,15 @@ public class GridSpace : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!isEmpty && !isStartingPoint) {
+			gridCube.SetActive (false);
+		}
 	}
 
 	public void SetVisibility(bool isVisible){
-		gameObject.transform.GetChild(0).gameObject.SetActive (isVisible);
+		int childCount = gameObject.transform.childCount;
+		for(var i = 0; i < childCount; i++){
+			gameObject.transform.GetChild(i).gameObject.SetActive (isVisible);	
+		}
 	}
 }
