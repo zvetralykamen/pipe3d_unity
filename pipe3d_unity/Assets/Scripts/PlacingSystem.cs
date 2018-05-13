@@ -7,14 +7,12 @@ public class PlacingSystem : MonoBehaviour {
     public Camera camera1;
 
     //pipe prefabs
-    public GameObject pipe_straight; //1
-    /*
-    public GameObject pipe_curve; //2
-    public GameObject pipe_T; //3
-    public GameObject pipe_cross; //4
-    public GameObject pipe_cross_plus1; //5 // I don't know how to call it; it's a cross but with one additional connection up or down
-    public GameObject pipe_allconnected; //6
-    */
+    public GameObject pipe_i; //1
+    public GameObject pipe_c; //2
+    public GameObject pipe_t; //3
+    public GameObject pipe_x; //4
+    //public GameObject pipe_cross_plus1; //5 // I don't know how to call it; it's a cross but with one additional connection up or down
+    //public GameObject pipe_allconnected; //6
     public GameObject pipe_end; //7
 
 
@@ -61,32 +59,34 @@ public class PlacingSystem : MonoBehaviour {
     }
 
     void instantiate_rndOption(Vector3 position) {
-        int rnd = 1; //int rnd = Random.Range(1, amount_of_options);
+        int rnd = Random.Range(1, amount_of_options);
         Quaternion rndRotation = Quaternion.Euler(rotations[Random.Range(0, 3)], rotations[Random.Range(0, 3)], rotations[Random.Range(0, 3)]);
 
         switch (rnd) {
             case 1:
-                Instantiate(pipe_straight, position, rndRotation);
+                Instantiate(pipe_i, position, rndRotation);
                 break;
-            /*
-         case 2:
-             Instantiate(pipe_curve, position, rndRotation);
-             break;
-         case 3:
-             Instantiate(pipe_T, position, Quaternion.identity);
-             break;
-         case 4:
-             Instantiate(pipe_cross, position, Quaternion.identity);
-             break;
-         case 5:
-             Instantiate(pipe_cross_plus1, position, Quaternion.identity);
-             break;
-         case 6:
-             Instantiate(pipe_allconnected, position, Quaternion.identity);
-             break;
-             */
+            case 2:
+                Instantiate(pipe_end, position, rndRotation); //just so there is something
+                //Instantiate(pipe_c, position, rndRotation);
+                break;
+            case 3:
+                Instantiate(pipe_t, position, rndRotation);
+                break;
+            case 4:
+                Instantiate(pipe_x, position, rndRotation);
+                break;
+            case 5:
+                Instantiate(pipe_end, position, rndRotation); //just so there is something
+                //Instantiate(pipe_cross_plus1, position, rndRotation);
+                break;
+            case 6:
+                Instantiate(pipe_end, position, rndRotation); //just so there is something
+                //Instantiate(pipe_allconnected, position, rndRotation);
+                break;
+
             case 7:
-                Instantiate(pipe_end, position, Quaternion.identity);
+                Instantiate(pipe_end, position, rndRotation);
                 break;
         }
     }
