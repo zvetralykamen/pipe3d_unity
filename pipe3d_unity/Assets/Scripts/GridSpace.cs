@@ -5,6 +5,7 @@ using UnityEngine;
 public class GridSpace : MonoBehaviour {
 
 	public GameObject gridCube;
+	public GameObject gridPipe;
 
 	public bool isEmpty = true;
 	public bool isStartingPoint = false;
@@ -21,7 +22,7 @@ public class GridSpace : MonoBehaviour {
 		}
 	}
 
-	public void SetVisibility(bool isVisible){
+	public void SetCubeVisibility(bool isVisible){
 		int childCount = gameObject.transform.childCount;
 		for(var i = 0; i < childCount; i++){
 			gameObject.transform.GetChild(i).gameObject.SetActive (isVisible);	

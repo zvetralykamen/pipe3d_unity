@@ -35,7 +35,7 @@ public class ViewController : MonoBehaviour {
 
 		if (col.gameObject.CompareTag("GridSpace")){
 			GridSpace gs = col.gameObject.GetComponentInChildren<GridSpace> ();
-			gs.SetVisibility (false);
+			gs.SetCubeVisibility (false);
             col.gameObject.layer = 2; //Layer 2 is ignoreRaychast so that you can place stuff under it
 		}
 	}
@@ -44,7 +44,7 @@ public class ViewController : MonoBehaviour {
 
 		if (col.gameObject.CompareTag ("GridSpace")) {
 			GridSpace gs = col.gameObject.GetComponentInChildren<GridSpace> ();
-			gs.SetVisibility (true);
+			gs.SetCubeVisibility (true);
             col.gameObject.layer = 0;
         }
 	}

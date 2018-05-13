@@ -112,9 +112,15 @@ public class PlacingSystem : MonoBehaviour {
                         GameObject go = hitinfo.transform.gameObject;
                         GridSpace gs = go.GetComponentInParent<GridSpace>();
                         Destroy(selected);
+
+						//Overriding the previous pipe. It will also have effect on score.
+						if (!gs.isEmpty) {
+							Destroy (gs.gridPipe);
+						}
 						GameObject newPipe = Instantiate(selected, hitinfo.transform.position, selected.transform.rotation);
                         gs.isEmpty = false;
-                        gs.SetVisibility(false);
+						gs.gridPipe = newPipe;
+                        gs.SetCubeVisibility(false);
 						newPipe.transform.SetParent (gs.gameObject.transform);
                         setOptionRefill();
                         selected = null;
