@@ -23,7 +23,7 @@ public class PlacingSystem : MonoBehaviour {
     public GameObject option_1;
     public GameObject option_2;
     public GameObject option_3;
-    private bool option_1_available = true;
+    private bool option_available = true;
     private bool option_2_available = true;
     private bool option_3_available = true;
 
@@ -44,9 +44,9 @@ public class PlacingSystem : MonoBehaviour {
 
 
     void setOptions() {
-        if (option_1_available == true) {
+        if (option_available == true) {
             instantiate_rndOption(option_1.transform.position);
-            option_1_available = false;
+            option_available = false;
         }
         else if (option_2_available == true) {
             instantiate_rndOption(option_2.transform.position);
@@ -132,7 +132,7 @@ public class PlacingSystem : MonoBehaviour {
     }
     void setOptionRefill() {
         if (option_position == option_1.transform.position) {
-            option_1_available = true;
+            option_available = true;
         }
         else if(option_position == option_2.transform.position) {
             option_2_available = true;

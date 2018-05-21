@@ -293,6 +293,7 @@
     <Compile Include="Assets\Scripts\GridSpace.cs" />
     <Compile Include="Assets\Scripts\LevelManagment.cs" />
     <Compile Include="Assets\Scripts\PlacingSystem.cs" />
+    <Compile Include="Assets\Scripts\PlacingSystemVer2.cs" />
     <Compile Include="Assets\Scripts\ViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
